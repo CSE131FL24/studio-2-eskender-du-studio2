@@ -4,20 +4,21 @@ import java.util.Random;
 
 public class Pi {
     public static void main(String[] args) {
-        int totalDarts = 10000; 
-        int dartsInsideCircle = 0;
+        int totalThrows = 1000000; 
+        int insideCircle = 0;
+
         Random rand = new Random();
 
-        for (int i = 0; i < totalDarts; i++) {
-            double x = rand.nextDouble();
-            double y = rand.nextDouble();
+        for (int i = 0; i < totalThrows; i++) {
+            double x = rand.nextDouble(); 
+            double y = rand.nextDouble();  
 
-            if (x * x + y * y <= 0.25) {
-                dartsInsideCircle++;
+            if (x * x + y * y <= 1) {
+                insideCircle++;
             }
         }
 
-        double piEstimate = (4.0 * dartsInsideCircle) / totalDarts;
-        System.out.println("Estimated value of Pi: " + piEstimate);
+        double piEstimate = 4.0 * insideCircle / totalThrows;
+        System.out.println("Estimated Pi: " + piEstimate);
     }
 }
